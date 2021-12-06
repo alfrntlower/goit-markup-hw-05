@@ -18,6 +18,8 @@
   --card-border-color: #eeeeee;
   --hero-bg-color: #2f303a;
   --icon-color: #afb1b8;
+  --cubic: cubic-bezier(0.4, 0, 0.2, 1);
+  --time-transition: 250ms;
 }
 
 body {
@@ -105,6 +107,7 @@ img {
   display: flex;
   margin-left: 93px;
 }
+
 .site-nav .current {
   color: var(--accent-color);
 }
@@ -126,7 +129,9 @@ img {
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  transition: color var(--time-transition) var(--cubic);
 }
+
 .header-link:hover,
 .header-link:focus {
   color: var(--accent-color);
@@ -142,12 +147,16 @@ img {
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
+
+  transition: color var(--time-transition) var(--cubic);
 }
 
 .icon-envelope,
 .icon-smartphone {
   fill: var(--secondary-text-color);
   margin-right: 10px;
+
+  transition: fill var(--time-transition) var(--cubic);
 }
 
 .header-contacts:hover,
@@ -315,7 +324,17 @@ img {
 .our-team-section {
   background-color: var(--secondary-bg-color);
 }
+.our-team-scene {
+  overflow: hidden;
+}
 
+.our-team-photo {
+  transform: rotateX(0);
+  transition: transform var(--time-transition) var(--cubic);
+}
+.our-team .item:hover .our-team-photo {
+  transform: translateY(20%) scale(1.5);
+}
 .our-team-title {
   margin-top: 0px;
   margin-bottom: 50px;
@@ -377,6 +396,7 @@ img {
   width: 44px;
   height: 44px;
   border-radius: 50%;
+  transition: background-color var(--time-transition) var(--cubic);
 }
 .team-icon-instagram,
 .team-icon-twitter,
@@ -385,6 +405,7 @@ img {
   width: 20px;
   height: 20px;
   fill: var(--icon-color);
+  transition: fill var(--time-transition) var(--cubic);
 }
 .team-social-links:hover,
 .team-social-links:focus {
@@ -432,11 +453,14 @@ img {
   color: var(--icon-color);
   border: 1px solid;
   border-color: var(--icon-color);
+
+  transition: border-color var(--time-transition) var(--cubic);
 }
 .icon-client {
   width: 106px;
   height: 60px;
   fill: var(--icon-color);
+  transition: fill var(--time-transition) var(--cubic);
 }
 
 .regular-customers-link:hover .icon-client,
@@ -466,6 +490,10 @@ img {
   text-align: center;
   color: var(--primary-text-color);
   background-color: var(--secondary-bg-color);
+
+  transition: color var(--time-transition) var(--cubic),
+    background-color var(--time-transition) var(--cubic),
+    box-shadow var(--time-transition) var(--cubic);
 }
 .button-portfolio:hover,
 .button-portfolio:focus {
@@ -498,8 +526,8 @@ img {
   flex-basis: calc((100% - 90px) / 3);
   background-color: var(--white-color);
   border: 1px solid var(--card-border-color);
-  /* box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12); */
+
+  transition: box-shadow var(--time-transition) var(--cubic);
 }
 .card-set .item:hover,
 .card-set .item:focus {
@@ -530,12 +558,15 @@ img {
   color: var(--primary-text-color);
 }
 
-.ex-works-link:hover .ex-works-thumb-label {
-  opacity: 1;
-}
 .ex-works-thumb {
   position: relative;
+  overflow: hidden;
 }
+
+.ex-works-link:hover .ex-works-thumb-label {
+  transform: translateY(0);
+}
+
 .ex-works-thumb-label {
   position: absolute;
   top: 0;
@@ -550,7 +581,8 @@ img {
 
   background: rgba(33, 150, 243, 0.9);
 
-  opacity: 0;
+  transform: translateY(100%);
+  transition: transform var(--time-transition) var(--cubic);
 }
 
 /* Footer*/
@@ -599,6 +631,7 @@ img {
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  transition: color var(--time-transition) var(--cubic);
 }
 .footer-item {
   margin-bottom: 9px;
@@ -642,6 +675,8 @@ img {
   height: 44px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
+
+  transition: background-color var(--time-transition) var(--cubic);
 }
 
 .icon-instagram,
@@ -669,6 +704,7 @@ img {
   background: rgba(0, 0, 0, 0.2);
 
   opacity: 1;
+  transition: opacity var(--time-transition) var(--cubic);
 }
 .backdrop.is-hidden {
   opacity: 0;
@@ -687,8 +723,10 @@ img {
   transform: translate(-50%, -50%) scale(1);
 
   width: 528px;
-  height: 281px;
+  height: 581px;
   background-color: var(--white-color);
+
+  transition: transform var(--time-transition) var(--cubic);
 }
 .modal-close-icon {
   width: 10px;
